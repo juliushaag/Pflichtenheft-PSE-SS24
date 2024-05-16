@@ -1,14 +1,83 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\documentclass[a4paper, parskip=full]{scrartcl}
+\usepackage[top=3cm, bottom=3.5cm, left=3cm, right=3cm]{geometry}
+\usepackage[utf8]{inputenc} % use utf8 file encoding for TeX sources
+\usepackage[LGR,T1]{fontenc}    % avoid garbled Unicode text in pdf
+\usepackage[german]{babel}  % german hyphenation, quotes, etc
+\usepackage{graphicx}       % provides commands for including figures
+\usepackage{csquotes}       % provides \enquote{} macro for "quotes"
+\usepackage{hyperref}       % detailed hyperlink/pdf configuration
+\usepackage{color}
+\usepackage{tabu}			% provides tables
+\usepackage[nonumberlist]{glossaries}     % provides glossary commands
+\hypersetup{                % ‘texdoc hyperref‘ for options
+  pdftitle={Pflichtenheft},
+  pdfauthor={Nils Prommersberger, Janik Hofmann, Lukas Schmidt, Paul Schillinger, 
+  Julius Haag},
+    bookmarks=true,
+}
+\graphicspath{{./figures/}} % Setting the graphicspath
 
-\title{Pflichtenheft-PSE-SS24}
-\author{John Dane}
-\date{May 2024}
+\newcounter{counter}[section]
+\setcounter{counter}{10}
+
+\newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup} % greek letters
+
+% new environment for listing requirements/product data/... with a counter
+% example: \begin{Kriterien}{FA} \item[example1] hello \item[example2] world \end{Kriterien}
+% output: \textbf{FA 10 example1} \\ hello \\ \textbf{FA 20 example2} \\world
+\newenvironment{Kriterien}[1]{
+	\let\olditem\item \renewcommand\item[1][]{\olditem[/#1\thecounter /] \textbf{##1} \hfill \\
+	\addtocounter{counter}{10}} \begin{description}}
+	{\end{description}}
+
+
+\newcommand{\name}{\textit{QuafelWeb} } % name of product
+
+\title{Pflichtenheft}
+\author{Nils Prommersberger, Janik Hofmann, Lukas Schmidt, Paul Schillinger, Julius Haag}
+\makeatletter
+
+\definecolor{mintgreen}{RGB}{50,161,137}
+
+% Kopf- und Fußzeilen
+\usepackage[automark,
+autooneside=false,headsepline=0.5pt,footsepline=0.5pt]{scrlayer-scrpage}
+\addtokomafont{headsepline}{\color{mintgreen}}
+\addtokomafont{footsepline}{\color{mintgreen}}
+\addtokomafont{pagehead}{\normalfont}
+
+% Bisherige Einstellungen für Kopf- und Fußzeilen löschen
+\clearpairofpagestyles
+
+% Auf der linken Seite den Dokumentnamen, auf der rechten die aktuelle Section anzeigen
+\ihead{\@title}
+\ohead{\rightmark}
+
+% Zentriert die Seitenzahl ausgeben
+\cfoot*{\pagemark}
+
+% Glossareinträge laden
+\makenoidxglossaries
+\loadglsentries{./chapters/Glossareintraege}
 
 \begin{document}
 
-\maketitle
+% beginn content
+\include{./chapters/Titelseite}
 
-\section{Introduction}
+\tableofcontents
+\include{./chapters/Vorwort}
+\include{./chapters/Zielbestimmung}
+\include{./chapters/Produkteinsatz}
+\include{./chapters/Produktumgebung}
+\include{./chapters/Funktionale_Anforderungen}
+\include{./chapters/Produktdaten}
+\include{./chapters/Nichtfunktionale_Anforderungen}
+\include{./chapters/Globale_Testfaelle}
+\include{./chapters/Systemmodelle}
+\include{./chapters/Entwicklungsumgebung}
+\include{./chapters/Glossar}
+\include{./chapters/Anhang}
 
+% end content
 \end{document}

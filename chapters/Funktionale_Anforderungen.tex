@@ -1,0 +1,161 @@
+\section{Funktionale Anforderungen}
+\setcounter{counter}{10}
+\subsection{Frontend}
+\begin{Kriterien}{FA}
+
+    \item[Aufteilung] Die Website ist in zwei grobe Teile aufgeteilt. Den Benutzerbereich, den alle einsehen können und der für die Veranschaulichung von Daten verantwortlich ist und den Administratorbereich, der für die Verwaltung der Benutzer, Hardwareprofile und das Submittieren von Daten genutzt wird.
+
+    \item[Benutzerbereich] Der Benutzerbereich besteht aus 
+
+\end{Kriterien}
+\paragraph{Benutzerbereich}
+\begin{Kriterien}{FA}
+    
+    \item[Farben der Grafen] Die Grafen werden zur Übersichtlichkeit in unterschiedlichen Farben dargestellt.
+
+    \item[Auswahl der Simulatoren] Die Simulatoren können nach Hardwareprofil, Simulationsprogramm und Version gefiltert und zum Vergleich ausgewählt werden.
+
+    \item[Entfernen der Simulatoren] Die Simulatoren können aus dem Vergleich wieder entfernt werden.
+
+    \item[Auswahl des Plots] Zur Veranschaulichung durch Grafen stehen folgende Datenpunkte zur Verfügung: Anzahl an Shots, QBits, Evaluations und die Tiefe der Schaltungen. Es kann bei der Darstellung durch Funktionsgrafen jeweils nur eines dieser Dinge ausgewählt sein. TODO
+
+    \item[Auswahl der Spanne] Die Spanne auf der der Graf dargestellt werden soll kann nur für den ausgewählten Datenpunkt eingestellt werden.
+
+    \item[Beschränkung des Plots] Es werden nur Daten als Grafen dargestellt, die zur Verfügung stehen. Daten, die noch nicht erstellt wurden, können von Benutzern nicht als Plot eingestellt werden.
+
+
+
+    \item[Anmelden] Ein registrierter Administrator kann sich über Chibotle mit seinem KIT-Account anmelden. 
+
+    \item[Abmelden] Ein angemeldeter Administrator kann sich abmelden.
+
+    \item[Registrieren] Ein angemeldeter Administrator kann einen anderen Administrator registrieren. 
+    
+
+
+    \item[Erstellung von Harwareprofilen] Ein Administrator kann neue Hardwareprofile erstellen und konfigurieren. Sobald für dieses Hardwareprofil Daten bestehen, wird dieses und die darauf laufenden Simulationsprogramme den Benutzern zur Auswahl zur Verfügung gestellt.
+
+    \item[Entfernen von Hardwareprofilen] Ein Administrator kann Hardwareprofile löschen. Diese und alle darauf laufenden Simulationsprogramme werden den Benutzern dann nicht mehr zur verfügung gestellt.
+
+
+
+    \item[Submittieren von Simulationsdaten] Ein Administrator kann neue Simulationsdaten erstellen lassen. Dabei kann er sich entscheiden ob schon erstellte Daten überschrieben werden sollen oder nicht.
+
+    \item[Submittieren filtern] Ein Adminisrator kann filtern, für welche Simulationsprogramme auf welchen Hardwareprofilen mit welcher Version neue Simulationdaten erstellt werden sollen.
+
+    \item[Submittieren konfigurieren] Ein Administrator kann einstellen in welcher Spanne er welche Daten erstellen möchte.
+
+    \item[Schon erstellte Daten] Wenn ein Administrator jegliche Spannen konfiguriert hat, wird für jedes ausgewählte Simulationsprogrammprofil die Anzahl der schon erzeugten Daten angezeigt.
+
+\end{Kriterien}
+
+\subsection{Backend}
+\begin{Kriterien}{FA}
+
+    \item[HTTPS-Forward] Versucht ein Benutzer über HTTP auf die Website zuzugreifen, wird er auf HTTPS umgeleitet.
+
+    \item[Startseite] Wir die Website ohne eine spezifischen Pfad aufgerufen, so wird auf das Datenpanel umgeleitet.
+
+	\item[Prüfung von Anfragen] Das Backend prüft Anfragen von \glslink{Client}{Clients} auf Zugriffsberechtigung.
+
+    \item Die Simulationsdurchgänge werden über ssh auf dem entsprechenden Server gestartet.
+
+	\item[Admin-Anmeldung] Meldet sich ein \gls{Administrator} an, wird die Admin-Übersicht angezeigt.
+
+	\item[Erstellen eines Auftrags] Das Backend prüft die Gültigkeit eines erstellten Simulationsauftrags und sendet diesen an den entsprechenden Server.
+
+
+
+\end{Kriterien}
+
+
+\paragraph{Kannkriterien}
+
+\begin{Kriterien}{FA}
+
+	\item[Einrichtungsprozess] Es gibt einen Einrichtungsprozess für die Inbetriebnahme von \textit{Argos}.
+	
+	\newpage
+
+	\item[Kommentarfunktion] Der Administrator kann für einen neuen Endpunkt die Kommentarfunktion erlauben. Einem signierenden Nutzer wird ein zusätzliches Textfeld angezeigt, das er ausfüllen kann. Der Inhalt des Textfeldes wird an den Ersteller des Auftrags weitergeleitet.
+
+	\item[Erfolgte Signatur] Der Administrator kann eine Aktion bei einer erfolgten Signatur festlegen.
+
+	\item[Auftragsgenehmigung] Der Administrator kann eine Aktion beim Abschluss eines Auftrags dieses Endpunktes festlegen.
+
+
+\end{Kriterien}
+
+\subsection{Frontend}
+\begin{Kriterien}{FA}
+
+	\item[Nutzer-Login] Beim Öffnen der Webseite wird der Anmeldebereich angezeigt. Der Nutzer kann sich hier mit seinen Anmeldedaten anmelden.
+
+	\item[Abmelden] Klickt der Nutzer auf den Menüpunkt \enquote{Abmelden}, erscheint die Anzeige \enquote{erfolgreich abgemeldet} und der Nutzer wird zum Anmeldebereich weitergeleitet.
+
+	\item[Nutzer-Startseite] Auf der Startseite des Frontends sind alle vom Nutzer erstellten Aufträge gelistet. Diese können nach den Kriterien Auftrags-ID, Auftragsname, \gls{Status} oder Erstellungsdatum sortiert werden.
+
+	\item[Seite: Zu signierende Aufträge] Auf der Seite für \enquote{Zu signierende Aufträge} des Frontends sind alle Aufträge gelistet, die der Nutzer mit seinen Rollen signieren kann. Diese können nach Priorität/Datum/Name sortiert werden.
+
+	\item[Detailansicht (selbst erstellte Aufträge)] Beim Klicken auf das
+	\enquote{Auge}-Symbol neben einem selbst erstellten Auftrag werden die
+	folgenden Details des Auftrags angezeigt: Status,
+	Ersteller, Erstellungsdatum, Datum der letzten Änderung, Auftragsverlauf,
+	zugehörige Formulardaten und Dateien.  Es werden die Buttons \enquote{Download} und
+	\enquote{Zurückziehen} angezeigt.
+
+	\item[Detailansicht (zu signierende Aufträge)] Beim Klicken auf einen
+	zu signierenden Auftrag werden auf einer neuen Seite angezeigt:
+	Status, Ersteller, Erstellungsdatum, Datum der letzten Änderung,
+	Auftragsverlauf, zugehörige Formulardaten und Dateien. Es werden die Buttons
+	\enquote{Signieren} und \enquote{Auftrag ablehnen} angezeigt.
+
+	\item[Download von Dateien] Beim Klicken auf den \enquote{Download}-Button eines Auftrags werden die zugehörigen Dateien heruntergeladen.
+
+	\item[Signieren] Je nach definierter Art kann die Signatur eines Auftrags erst nach Download der zugehörigen Dateien erfolgen. Ein Nutzer kann einen Auftrag nur ein Mal signieren.
+
+	\item[Ablehnen eines Auftrags] Der Nutzer kann durch das Klicken des \enquote{Auftrag ablehnen}-Buttons, der in der Detailansicht des jeweiligen Auftrags  angezeigt wird, einen Auftrag ablehnen. Der Auftrag wird als abgelehnt gekennzeichnet und kann nicht mehr signiert oder genehmigt werden.
+
+	\item[Nach der Signatur] Für alle Nutzer mit derselben Rolle wird nach der Signatur der jeweilige Auftrag nicht mehr auf der Seite \enquote{Zu signierende Aufträge} angezeigt. Der signierende Nutzer und andere Nutzer mit derselben Rolle können den Auftrag unter dem Menüpunkt \enquote{Historie} einsehen.
+
+
+	\item[Benachrichtigung im Frontend] Ändert sich der Status eines erstellten Auftrags (ein Nutzer hat den Auftrag signiert, der Auftrag wurde abgelehnt) oder muss der Nutzer selbst einen Auftrag signieren, wird dies im Frontend unter dem Menüpunkt \enquote{Benachrichtigungen} angezeigt.
+
+	\item[Benachrichtigung per E-Mail] Ein Nutzer kann über die Nutzereinstellungen im Frontend die Benachrichtigung per E-Mail an- und ausschalten. Eine Benachrichtigungs-E-Mail wird immer an die in den Nutzerdaten gespeicherte E-Mail-Adresse gesendet.
+
+	\item[Erstellung von Aufträgen] Beim Klicken auf einen der Endpunkte, die im Menü des Frontends gelistet sind, wird der Nutzer zu einer Erstellungsansicht weitergeleitet.
+	Die vom Nutzer auszufüllenden Informationen hängen vom gewählten Endpunkt ab. Der \enquote{Erstellen}-Button ist zunächst ausgegraut. Hat der Nutzer alle Pflichtfelder ausgefüllt, kann er den \enquote{Erstellen}-Button klicken.
+
+	\item[Bestätigungs-E-Mail] Hat ein Nutzer einen Auftrag erstellt, so erhält er eine Bestätigungs-E-Mail mit Details zu seinem Auftrag.
+		
+	\item[Hochladen von Dateien] Beim Klicken auf den \enquote{Upload}-Button bei der Auftragserstellung wird ein Datei-Upload-Dialog angezeigt und der Nutzer kann ein oder mehrere Dateien auswählen, die hochgeladen werden.
+
+	\item[Verarbeitung von hochgeladenen Dateien] Das \gls{System} sammelt Metadaten von hochgeladenen Dateien, wie Größe, Zeitstempel und Hashwert, und zeigt diese in der Detailansicht des jeweiligen Auftrags an.
+	
+	\newpage
+
+	\item[Genehmigung von Aufträgen] Haben alle benötigten Rollen den Auftrag signiert, ist er genehmigt. Der Ersteller des Auftrags wird benachrichtigt.
+
+	\item[Zurückziehen von Aufträgen] Ist ein Auftrag noch nicht genehmigt (es haben noch nicht alle nötigen Rollen signiert), kann der Auftragsersteller diesen zurückziehen, indem er auf den \enquote{Zurückziehen}-Button der Detailansicht des jeweiligen Auftrags klickt und das Zurückziehen bestätigt.
+
+	\item[Löschen von abgelehnten Aufträgen] Ein abgelehnter Auftrag kann vom Ersteller gelöscht werden.
+
+	\item[Löschen von genehmigten Aufträgen] Das Löschen von genehmigten Aufträgen ist je nach Endpunktkonfiguration möglich.
+
+\end{Kriterien}
+
+\paragraph{Kannkriterien}
+
+\begin{Kriterien}{FA}
+
+	\item[Tooltip Text] Beim Überfahren auszufüllender Felder werden zusätzliche Informationen eingeblendet.
+
+	\item[Aufträge sortieren] Aufträge auf der Nutzer-Übersicht können nach Priorität/Datum/Name sortiert werden.
+
+	\item[Mobile Endgeräte] Das Frontend ist für mobile Endgeräte optimiert.
+
+	\item[\gls{Wiki}] Es steht ein Wiki zur Verfügung, in dem Informationen zur Konfiguration und Benutzung aufgeführt sind.
+
+
+
+\end{Kriterien}

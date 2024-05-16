@@ -1,0 +1,104 @@
+\section{Globale Testfälle}
+\newcommand{\stand}{\textbf{Stand: }}
+\newcommand{\aktion}{\\ \textbf{Aktion: }}
+\newcommand{\ergebnis}{\\ \textbf{Reaktion: }}
+
+\setcounter{counter}{10}
+\subsection{Frontend}
+\begin{Kriterien}{TF}
+%Frontend
+    \item[Anmeldung des \glslink{Administrator}{Administrators}]
+    \stand Ausgemeldeter Nutzer ist auf Startseite.
+    \aktion Ein Administrator klickt auf "Anmelden" und meldet sich über Shibboleth an.
+    \ergebnis Der Administrator wird angemeldet und wird zum Adminpanel weitergeleitet.
+
+    \item[Abmeldung des Administrator]
+    \stand Ein Administrator ist angemeldet.
+    \aktion Ein Administrator meldet sich über das Adminpanel ab.
+    \ergebnis Der Administrator wird abgemeldet und landet abgemeldet auf der Graphenseite.
+
+    \item[Entfernung von Administrator]
+    \textbf{1. }\stand Es existieren mehr als ein Administratoren.
+    \aktion Ein Administrator löscht einen Administrator über das Adminpanel.
+    \ergebnis Administrator wird gelöscht.
+    
+    \textbf{2. }\stand Es existiert nur ein letzter Administrator.
+    \aktion Der letzte Administrator versucht sich als Administrator zu löschen.
+    \ergebnis Ein Fehler wird angezeigt. Die Rechte des letzten Administrator werden nicht entzogen.
+    
+    \item[Hinzufügen von Administratoren] 
+    \stand Adminpanel ist offen.
+    \aktion Ein Administrator fügt einen neuen Administrator über die E-Mail-Adresse hinzu.
+    \ergebnis Der Nutzer der E-Mail-Adresse wird als Administrator angelegt.
+
+    \item[Beauftragung Simulationsdurchgänge]
+    \stand Die Submitierungsseite ist offen.
+    \aktion Administrator wählte Simulationsdurchgänge aus und klickt auf submitieren.
+    \ergebnis Client schickt Submitierungsauftrag an den Server.
+
+    \item[Benchmarkprofilerstellung] 
+    \stand Die SUbmitierungsseite ist offen. Bestimmte Hardware, Simulationssoftware und Versionen sind ausgewählt. 
+    \aktion Ein Administrator drückt auf "Benchmarkprofil speichern".
+    \ergebnis Benchmarkprofil wird auf dem Server gespeichert und dem Administrator als neues auswählbares Benchmarkprofil angezeigt.
+
+    \subsection{Backend}
+    
+    \item[Vorhandene Simulationsdurchgänge laden]
+    \stand Submitierungsauftrag mit bereits vorhandenen Simulationsdurchgängen wird vom Server verarbeitet.
+    \ergebnis Bereits vorhandene Simulationsdurchgänge in der Datenbank werden geladen anstatt nochmals berechnet zu werden.
+
+    \item[Berechnung Simulationsdurchgänge] 
+    \stand Simulationsdurchgänge wurden submitiert.
+    \ergebnis Server schickt zu berechnende Simulationsdurchgänge an QUAFEL und wartet auf Ergebnisse.
+
+    \item[Einlesen QUAFEL Ergebnisse]
+    \stand QUAFEL schickt Ergebnisse als Datei an den Server.
+    \ergebnis Das Backend verarbeitet die Datei. Die Ergebnisse werden in der Datenbank gespeichert und zur Verfügung gestellt.
+
+    
+
+
+    
+    \item[Zugriff über \gls{HTTP}] Der Admin versucht, über HTTP auf das Backend zuzugreifen.\ergebnis Der Admin wird auf \gls{HTTPS} umgeleitet.
+
+    \item[Admin-Übersicht] Korrekte Ansicht der Admin-Übersicht.\ergebnis Der Administrator kann in seiner Admin-Übersicht auf eine Liste aller \glspl{Auftrag}, eine Liste aller \glspl{Endpunkt} und auf den Menüpunkt \enquote{Endpunkt erstellen} zugreifen.
+
+	\item[Endpunkt als auslaufend markieren] Der Administrator markiert im Menüpunkt \enquote{Endpunkte verwalten} einen Endpunkt als auslaufend. \ergebnis Im \gls{Frontend} können keine neuen Aufträge zu diesem Endpunkt erstellt werden.
+
+    \item[Auslaufenden Endpunkt löschen] Alle Aufträge zu einem auslaufenden Endpunkt wurden genehmigt.\ergebnis Der Endpunkt wird nicht mehr angezeigt.
+
+	\item[Erstellung eines neuen Endpunkts] Der Administrator klickt auf den Menüpunkt \enquote{Endpunkt erstellen}. \ergebnis Er wird auf eine neue Seite weitergeleitet. Er kann den Namen und den \gls{Modus} des Endpunkts festlegen. Weiterhin kann er benötigte \glspl{Signatur} von bestimmten \glspl{Rolle} oder konkreten \glslink{Nutzer}{Nutzern} hinzufügen. Er kann den Inhalt eines \glslink{Formular}{Formulars} spezifizieren, das vom Auftragsersteller ausgefüllt werden muss. Sind noch nicht alle Felder ausgefüllt, kann der Administrator den neuen Endpunkt nicht erstellen.
+
+    \item[Nach Erstellung eines neuen Endpunkts] Der Administrator bestätigt die Erstellung eines neuen konfigurierten Endpunkts. \ergebnis In der Liste aller Endpunkte wird ein neuer Eintrag mit den soeben festgelegten Details angezeigt. Im Frontend können Nutzer Aufträge für diesen Endpunkt erstellen.
+
+\end{Kriterien}
+
+\subsection{Backend}
+\begin{Kriterien}{TF}
+
+    \item[Anmeldung erfolgreich] Der Nutzer meldet sich mit korrekten Authentifizierungsdaten an.\ergebnis Der Nutzer wird zur Nutzer-Startseite weitergeleitet und als angemeldet vom \gls{System} erkannt.
+
+    \item[Anmeldung fehlgeschlagen] Der Nutzer meldet sich mit falschen Authentifizierungsdaten an.\ergebnis Der Nutzer wird darauf hingewiesen, dass seine eingegebenen Authentifizierungsdaten nicht korrekt sind.
+
+    \item[Abmeldung] Abmeldung eines Nutzers. \ergebnis Der Nutzer bekommt die Bestätigung der erfolgreichen Abmeldung und wird zum Anmeldebereich weitergeleitet.
+
+    \item[Nicht autorisierter Zugriff] Ist der Nutzer nicht angemeldet und versucht, auf geschützte Inhalte zuzugreifen, wird mit einer \enquote{nicht autorisiert}-Meldung reagiert und der Zugriff verweigert.
+
+    \item[Zugriff über HTTP] Der Nutzer versucht, über HTTP auf das Frontend zuzugreifen.\ergebnis Der Nutzer wird auf HTTPS umgeleitet.
+
+    \item[\gls{LDAP} nicht erreichbar] Nutzer greift auf das Frontend zu, falls der LDAP-\gls{Server} nicht erreichbar ist. \ergebnis Der Server meldet sowohl über das Frontend als auch über die \gls{REST-API} einen Authentifizierungsfehler, dass der LDAP-Server nicht erreichbar ist und meldet dem Nutzer, dass der Administrator bereits per E-Mail benachrichtigt wurde.
+
+     \item[Auftrag erstellen] Ein Nutzer konfiguriert zu einem bestimmten Endpunkt einen Auftrag und bestätigt die Erstellung. \ergebnis Der erstellte Auftrag wird unter \enquote{Meine Aufträge} angezeigt. Der Nutzer bekommt alle Auftragsdetails per E-Mail zugeschickt. Die Nutzer mit den Rollen, deren Signatur zuerst benötigt wird, werden benachrichtigt.
+
+      \item[Auftrag signieren] Ein Nutzer signiert einen Auftrag. \ergebnis Für alle Nutzer mit der gleichen Rolle wie die des Signierenden wird der Auftrag nicht mehr unter \enquote{Zu signierende Aufträge} angezeigt. Unter dem Menüpunkt \enquote{Historie} können diese Nutzer den Auftrag einsehen.
+
+\newpage
+    \item[Auftrag abgelehnt] Ein Nutzer, dessen Signatur für einen Auftrag benötigt wird, lehnt den Auftrag ab. \ergebnis Der Auftrag wird als abgelehnt gekennzeichnet und kann nicht mehr signiert oder genehmigt werden. Der Ersteller des Auftrags erhält eine Benachrichtigung und kann den Auftrag löschen.
+
+ 	\item[\gls{Status}änderung eines Auftrags] Der Status eines Auftrags ändert sich. \ergebnis Der Ersteller des Auftrags wird im Frontend über die Statusänderung benachrichtigt. Abhängig von seiner Nutzereinstellung bekommt er zusätzlich eine E-Mail-Benachrichtigung.
+
+    \item[E-Mail-Benachrichtigungen ausschalten] Ein Nutzer schaltet im Frontend unter dem Menüpunkt \enquote{Einstellungen} die E-Mail-Benachrichtigungen aus. \ergebnis Der Nutzer erhält keine Benachrichtigungen per E-Mail mehr. Die Benachrichtigungen im Frontend werden weiterhin angezeigt.
+
+	\item[Auftrag zurückziehen] Ein Nutzer zieht einen selbst erstellten Auftrag zurück. \ergebnis Der Auftrag kann nicht mehr signiert oder genehmigt werden.
+
+\end{Kriterien}

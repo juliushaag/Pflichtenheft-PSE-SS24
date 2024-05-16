@@ -1,0 +1,41 @@
+\section{Produktumgebung}
+\subsection{Hardware}
+Das \gls{Frontend} und \gls{Backend} kann von einem \gls{Server} bereitgesetellt werden, welcher folgende Mindestanforderungen erfüllt:
+\begin{itemize}
+    \item Ausreichende Rechen- und Speicherkapazität für vorgesehene \gls{Nutzer}zahl, Software und \gls{Datenbank}
+    \item Im KIT Netz erreichbar
+    \item Zugriffsmöglichkeit auf die Simulationsbenchmarkprogramme Server
+\end{itemize}
+      
+Für den Zugriff auf das Frontend und Backend wird ein Computer mit Betriebssystem benötigt, der an das KIT Netz angeschlossen ist.
+\subsection{Software}
+\subsubsection{Webdienst}
+Der Webdienst von \name benötigt:
+\begin{itemize}
+    \item Linux-Distribution, vorzugsweise Debian basiert
+    \item Relationale Datenbank: postgresql
+    \item Python 3
+    \item Django mit zugehörigen Abhängigkeiten
+\end{itemize}
+
+\subsubsection{Frontend und Backend}
+Serverseitig ist für den Betrieb des Frontends und Backends nötig:
+\begin{itemize}
+    \item Linux-Distribution, vorzugsweise Debian basiert
+    \item Apache 2
+\end{itemize}
+\gls{Client}seitig werden folgende Browser unterstützt:
+\begin{itemize}
+    \item Safari ab Version 11
+    \item Chrome ab Version 69
+    \item Firefox ab Version 57
+\end{itemize}
+
+\subsection{Orgware}
+Ein reibungsloser Betrieb kann nur unter nachstehenden Bedingungen erfolgen:
+\begin{itemize}
+    \item unterbrechungsfreie Netzwerkverbindung
+    \item Verfügbarkeit eines \glslink{Administrator}{Administrators}, der Erstkonfiguration und \gls{Endpunkt}verwaltung im Backend vornimmt
+    \item mindestens ein Simulator TODO.
+\end{itemize}
+

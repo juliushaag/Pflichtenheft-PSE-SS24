@@ -1,0 +1,114 @@
+\section{Zielbestimmung}
+Das erklärte Ziel von \name ist es, das Einsehen und vergleichen von Quantensimulatoren mit dem Framework Quafel zu vereinfachen und die Datenspeicherung der bereits durchgeführten Simulationsdurchgänge zu zentralisieren. 
+Die Webplatform soll öffentlich zugänglich gemacht werden, um es Forschern weltweit zu ermöglichen auf diese Datensätze zuzugreifen.
+Zudem soll das Erstellen neuer Datensätze übersichtlicher und vereinfacht auf einer Website möglich sein, zudem wird sichergestellt das bereits gesammelte Daten nicht noch einmal erstellt werden um somit Zeit und Rechenleistung zu sparen.  
+
+
+
+\subsection{Musskriterien}
+\setcounter{counter}{10}
+\subsubsection{Backend}
+\begin{Kriterien}{MK}
+
+    \item Es gibt zu jedem Zeitpunkt mindestens einen Administrator.
+
+    \item Jeder Administrator kann sich ab- und anmelden. 
+    
+	\item Jeder Administrator weitere Administratoren hinzufügen, oder entfernen.
+
+	\item Jeder Administrator kann über eine graphische Oberfläche Simulationsdurchgänge beauftragen.
+
+    \item Bereits berechnete Simulationsdurchgänge, werden nicht noch einmal berechnet, sondern direkt aus der Datenbank geladen.
+
+	\item Jeder Admin kann über eine graphische Oberfläche neue Hardware Profile erstellen.  
+
+    \item Die Simulationsdurchgänge werden mit dem Framework Quafel erstellt.
+
+    \item Die Daten der Simulationsdurchgänge werden von einer Datei durch das Program eingelesen und verarbeitet.
+
+    \item Die Benutzeroberfläche wird einheitlich in Englisch gehalten.
+ 
+	\item Benchmarkprofile werden nach Hardware, Simulator und Version kategorisiert.
+
+    
+	\item Die Anmeldung eines Administrators erfolgt über eine Login Website.
+ 
+    
+\end{Kriterien}
+\subsubsection{Frontend}
+\begin{Kriterien}{MK}
+
+    
+	\item Der Webdienst sowie die Datenbank laufen auf einem Rechner.
+
+	\item Die Schnittstelle des \gls{Simulationsbenchmarkprograms} wird von \name verwendet.
+
+	\item Die Daten werden alle auf einer \gls{Datenbank} gespeichert.
+
+	\item Die Weboberfläche ist nur über \gls{HTTPS} verfügbar.
+
+	\item Die Nutzer können das \gls{Frontend} über das Internet abrufen.
+
+	\item Das Frontend übermittelt die Eingabe an das Backend.
+
+	\item Über das Frontend können Benchmark Daten die bereits erfasst wurden durch Graphen eingesehen und verglichen werden.
+
+	\item Das Frontend erlaubt die Angezeigten Daten zu filtern.
+ 
+    \item Graphen müssen als Funktionsgraphen TODO dargestellt werden 
+
+\end{Kriterien}
+
+
+\newpage
+\subsection{Kannkriterien}
+\setcounter{counter}{10}
+Die folgenden Kannkriterien sind nach absteigender Priorität geordnet.
+\subsubsection{Frontend}
+\begin{Kriterien}{KK}
+
+	\item Persistente Links TODO.
+
+	\item Die angezeigten Graphen können heruntergeladen werden.
+
+	\item Für die Kommentarfunktion können Vorlagen verwendet werden.
+
+	\item Graphen können zusätzlich als Heatmap dargestellt werden.
+
+	\item Nutzer können Daten Uploaden, welche durch Admins in das System eingebunden werden können.
+
+	\item Administratoren können über eine graphische Oberfläche weitere Administratoren hinzufügen.
+
+    \item Weitere Sprachen können hinzugefügt werden
+
+    
+	\item Der Status der submitierten Simulationen wird auf einer separaten Seite im Admin Bereich angezeigt.
+
+\end{Kriterien}
+
+
+\subsection{Abgrenzungskriterien}
+\setcounter{counter}{10}
+\subsubsection{Frontend}
+\begin{Kriterien}{AK}
+
+	\item Daten der Simulationsdurchgänge können nur überschrieben nicht gelöscht werden 
+
+	\item Die Registrierung neuer Nutzer über das \gls{System} ist nicht möglich.
+
+	\item Nur Authentifizierte Admins können das Admin Panel benutzen.
+
+
+	\item Ein Endpunkt mit Aufträgen, die sich in Bearbeitung befinden, kann nicht entfernt oder geändert werden.
+
+	\item Werden mehrere Dateien in einem Auftrag hochgeladen, werden sie mit einer Signatur signiert. Es ist nicht möglich, die Dateien einzeln zu signieren bzw. nicht zu signieren.
+\end{Kriterien}
+
+\subsubsection{Backend}
+\begin{Kriterien}{AK}
+
+	\item Das Backend übernimmt keinen Teil der Simulation.
+
+\end{Kriterien}
+
+

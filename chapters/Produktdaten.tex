@@ -1,0 +1,68 @@
+\section{Produktdaten}
+\label{sec:data}
+\setcounter{counter}{10}
+\begin{Kriterien}{PD}
+\item[\gls{Nutzer}daten] Folgende Nutzerdaten werden gespeichert:
+\end{Kriterien}
+\vspace{-10pt}
+\begin{itemize}\itemsep-10pt
+\item Name, Vorname
+\item E-Mail-Adresse
+\item eindeutige Nutzer-ID
+\item vom \gls{LDAP} festgelegte \glspl{Rolle}
+\item Ein-/Ausschalten der E-Mail-Benachrichtigung
+\end{itemize}
+
+
+\begin{Kriterien}{PD}
+\item[\gls{Administrator}daten] Folgende Administratordaten werden gespeichert:
+\end{Kriterien}
+\vspace{-10pt}
+\begin{itemize}\itemsep-10pt
+\item Name, Vorname
+\item E-Mail-Adresse
+\item Passwort in verschlüsselter Form
+\end{itemize}
+
+
+\begin{Kriterien}{PD}
+\item[\gls{Endpunkt}] Für jeden definierten Endpunkt werden folgende Kriterien gespeichert:
+\end{Kriterien}
+\vspace{-10pt}
+\begin{itemize}\itemsep-10pt
+\item Name des Endpunkts
+\item Eindeutige Endpunkt-ID
+\item \gls{Modus} des Endpunkts (parallel/sequentiell)
+\item Anzahl der benötigten \glspl{Signatur}
+\item Rollen, die signieren müssen
+\item Nutzer, die signieren müssen
+\item Bei sequentiellem Modus: Reihenfolge der signierenden Rollen/Nutzer
+\item Ein-/Ausschalten der E-Mail-Benachrichtigung für Nutzer, deren Signatur benötigt wird
+\item \gls{Formular}zusammensetzung
+\end{itemize}
+
+\begin{Kriterien}{PD}
+\item[\gls{Auftrag}] Jeder Auftrag wird mit folgenden Informationen gespeichert:
+\end{Kriterien}
+\vspace{-10pt}
+\begin{itemize}\itemsep-10pt
+\item ID des verwendeten Endpunkts
+\item Eindeutige Auftrag-ID
+\item Nutzer-ID des Erstellers
+\item Erstellungsdatum
+\item Benötigte Signaturen
+\item Nutzer-ID erfolgter Signaturen mit Zeitstempel
+\item Bei sequentiellem Modus: Reihenfolge der Signaturen
+\item Ausgefülltes Formular mit zugehörigen Dateien
+\end{itemize}
+
+\begin{Kriterien}{PD}
+\item[Datei] Für jede hochgeladene Datei werden folgende Metadaten über die Datei gespeichert:
+\end{Kriterien}
+\vspace{-10pt}
+\begin{itemize}\itemsep-10pt
+\item Autor
+\item Größe
+\item Zeitstempel
+\item Hashwert
+\end{itemize}

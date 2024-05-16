@@ -1,0 +1,129 @@
+\documentclass[parskip=full]{scrartcl}
+\usepackage{graphicx}       % provides commands for including figures
+\usepackage{csquotes}       % provides \enquote{} macro for "quotes"
+\usepackage[nonumberlist]{glossaries}     % provides glossary commands
+\usepackage{enumitem}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{blindtext}
+\title{Wiederholung zum Requirements Engineering}
+\author{Nicolas Schuler}
+
+\begin{document}
+
+\maketitle
+\section{Vorwort}
+Dieses Dokument dient noch einmal zur Wiederholung der wichtigsten Punkte im \textbf{\textit{Requirements Engineering}} für das Pflichtenheft.
+Es handelt sich hierbei um eine Zusammenfassung der Inhalte aus der Vorlesung zu SWT I und dem Buch \enquote{Software Engineering} [von Ian Summerville, 9. Auflage auf Deutsch].
+
+\section{Unterscheidung in zwei Anforderungsbereiche}
+\subsection{Benutzeranforderungen}
+Sind Aussagen in natürlicher Sprache sowie Diagramme zur Beschreibung der Dienste, dass das System seinen Nutzern bieten sollte und der Randbedingungen, unter denen es betrieben wird.
+$\Rightarrow$ Meist sehr allgemein gehalten.
+
+\subsection{Systemanforderungen}
+Sind detaillierte Beschreibungen der Funktionen, Dienste und Beschränkungen des System. Es handelt sich hierbei also um die funktionale Spezifikation von dem was implementiert werden soll.
+$\Rightarrow$ Sehr spezifisch gehalten.
+
+\paragraph{Wichtig}
+Immer die verschiedenen Benutzersichten im Auge behalten (Mangager, Endnutzer, Softwarearchitekt ...).
+
+\section{Anforderungen}
+\subsection{Funktionale Anforderungen}
+Aussagen zu den Diensten, die das System leisten sollte, zur Reaktion des Systems auf bestimmte Eingaben und zum Verhalten des Systems in bestimmten Situationen.
+
+$\rightarrow$Werden als Aktionen formuliert
+
+\subsection{Nichtfunktionale Anforderungen}
+Beschränkungen der durch das System angebotenen Dienste oder Funktionen. Beziehen sich eher auf das ganze System als auf einzelne Systemfunktionen oder Dienste.
+Nichtfunktionale Anforderungen sind oft relevanter als einzelne Funktionale.
+
+$\rightarrow$Werden als Einschränkungen oder Zusicherungen formuliert
+\paragraph{Grund}
+\begin{itemize}[nosep]
+	\item Nichtfunktionale Anforderungen können eher die Gesamtstruktur eines Systems statt einzelne Komponente betreffen.
+	\item Eine einzelne Nichtfunktionale Anforderung kann eine Reihe von damit zusammenhängenden Funktionalen Anforderung erzeugen. Zusätzlich das Anforderungen erzeugt werden, können auch die vorhandenen eingeschränkt werden.
+\end{itemize}
+\paragraph{Wichtig}
+Eine klare Trennung ist schwer zu finden z.B. kann eine Nichtfunktionale Anforderung zu einer Reihe von funktionalen führen. Weiterhin sollten Nichtfunktionale Anforderungen quantitativ d.h unter Benutzung von Metriken überprüft werden können.
+
+\section{Spezifikation in natürlicher Sprache}
+\begin{itemize}
+	\item Wenn möglich sollte ein Standardformat, eine Vorlage entwickelt werden. Zum Beispiel die Anforderung in einem Satz ausdrücken + Begründung warum die Anforderung vorgeschlagen und aufgenommen wurde $\rightarrow$ Hilfreich für spätere Änderungen
+	\item Hervorhebungen, Kursiv, Fett, unterstrichen sollten im Text benutzt werden.
+	\item Fachjargon, Abkürzungen und Akronyme müssen erklärt werden.
+\end{itemize}
+
+\section{Sammeln von Anforderungen}
+$\rightarrow$ Szenarien ausfindig machen
+
+Diese können von anderen angrenzenden/eingebetteten Systemen kommen. Und sollten immer aus verschiedenen Blickwinkel betrachtet werden.
+\subsection{Szenarien-Aufbau}
+\begin{itemize}
+	\item Beschreibung was das System und die Benutzer erwartet, wenn das Szenario beginnt.
+	\item Beschreibung des normalen Ereignisablaufs
+	\item Informationen über andere Aufgaben die zur selben Zeit ablaufen können
+	\item Beschreibung des Systems wenn das Szenario endet.
+\end{itemize}
+\paragraph{Beispiel für die Gliederung eines strukturiertes Szenario}
+\begin{itemize}
+	\item Initialisierung
+	\item Normaler Ablauf
+	\item Falscher Ablauf
+	\item parallele Prozesse, die von dem Szenario beeinflusst werden könnten.
+	\item Systemzustand bei Beendigung
+\end{itemize}
+\paragraph{Tipps zum Finden von Szenarien}
+\begin{itemize}
+	\item Was sind die Hauptaufgaben, welche das System erfüllen soll?
+	\item Welche Daten wird der Benutzer erzeugen, speichern, ändern, löschen oder in das System eingeben?
+	\item Über welche Änderungen außerhalb des Systems muss das
+	System Bescheid wissen?
+	\item Über welche Änderungen oder Ereignisse muss der Benutzer des Systems informiert werden?
+\end{itemize}
+Auch sollte angemerkt werden, dass es keine klar definierte Trennung zwischen einem Szenario und einem Anwendungsfall gibt. Für manche existiert diese zwar, sodass ein Szenario als Teil eines Anwendungsfalles ist) für manche jedoch nicht.
+
+\paragraph{Beschreibung eines Anwendungsfalles}
+\begin{itemize}
+	\item Name des Anwendungsfalls
+	\item Teilnehmende Akteure
+	\item Eingangsaktionen
+	\item Ereignisfluss
+	\item Ausgangsaktionen
+	\item Besondere Anforderungen
+\end{itemize}
+\paragraph{Gliederung Pflichtenheft}
+\begin{itemize}[itemsep=-10pt]
+	\item Zielbestimmung
+	\begin{itemize}[itemsep=-10pt]
+		\item Musskriterien
+		\item Wunschrkiterien
+		\item Abgrenzungskriterien
+	\end{itemize}
+	\item Produkteinsatz
+	\begin{itemize}[itemsep=-10pt]
+		\item Anwendungsbereiche
+		\item Zielgruppen
+		\item Betriebsbedingungen
+	\end{itemize}
+	\item Produktumgebung
+	\begin{itemize}[itemsep=-10pt]
+		\item Software
+		\item Hardware
+		\item Orgware
+		\item Produkt-Schnittstellen
+	\end{itemize}
+	\item Funktionale Anforderungen
+	\item Produktdaten
+	\item Nichtfunktionale Anforderungen
+	\item Globale Testfälle
+	\item Systemmodelle
+	\begin{itemize}[itemsep=-10pt]
+		\item Szenarien
+		\item Anwendungsfälle
+		\item Objektmodelle
+		\item Dynamische Modelle
+	\end{itemize}
+\end{itemize}
+\end{document}

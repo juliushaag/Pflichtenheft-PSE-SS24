@@ -1,0 +1,220 @@
+\newglossaryentry{Webdienst}
+{
+	name=Webdienst,
+	description={Ein Webdienst gibt auf Anfragen von Clients die gewünschte Information mittels festgelegter Schnittstellen zurück.}
+}
+\newglossaryentry{Simulationsbenchmarkprograms}
+{
+	name=LDAP,
+	description={None}
+}
+\newglossaryentry{Administrator}
+{
+	name=Administrator,
+	plural=Administratoren,
+	description={Ein Administrator (kurz Admin) verfügt über besondere Rechte und kann auf das Backend zugreifen. Er kann Endpunkte verwalten und konfigurieren}
+}
+
+\newglossaryentry{Endpunkt}
+{
+	name= Endpunkt,
+	plural=Endpunkte,
+	description={ Ein Endpunkt ist eine feste Konfiguration für eine Menge von Aufträgen. Er wird von einem Administrator konfiguriert und bietet den Nutzern eine Schnittstelle, um mit dem System zu interagieren. Eine einfache Konfiguration umfasst beispielsweise: die Anzahl der Augenpaare, sequentieller oder paralleler Modus, benötigte LDAP-Rolle oder konkreter Nutzer für die jeweilige Signatur, Ein- und Ausschalten der E-Mail-Benachrichtigung und Zusammensetzung des Formulars. Der Modus der sequentiellen Signatur legt hierbei eine bestimmte Reihenfolge der einzelnen Signaturen fest, der der parallelen Signatur erzwingt keine Reihenfolge. Die Nutzer können unter diesen Endpunkten konkrete Aufträge erzeugen}
+}
+\newglossaryentry{modular}
+{
+	name=modular,
+	description={Eine Zusammensetzung von Komponenten wird als modular bezeichnet, wenn einzelne Komponenten hinzugefügt, geändert oder entfernt werden können, ohne dabei andere Komponenten zu beeinflussen}
+}
+\newglossaryentry{REST-API}
+{
+	name=REST-API,
+	description={Das REpresentational State Transfer - Application Programming Interface beschreibt einen Ansatz für die Kommunikation zwischen Client und Server in Netzwerken. Bei \name wird der Webdienst als REST-API umgesetzt}
+}
+\newglossaryentry{Nutzer}
+{
+	name=Nutzer,
+	plural=Nutzer,
+	description={Ein Nutzer interagiert mit dem Frontend des Systems. Nutzer sind vom LDAP festgelegt}
+}
+\newglossaryentry{Authentifizierungsdienst}
+{
+	name=Authentifizierungsdienst,
+	plural=Authentifizierungsdienste,
+	description={Bietet die Möglichkeit, die behauptete Identität eines Nutzer anhand übermittelter Information (z.B. Nutzername und Passwort) zu überprüfen. Wird von \name zur Nutzeranmeldung genutzt}
+}
+\newglossaryentry{HTTPS}
+{
+	name=HTTPS,
+	description={Das Hypertext Transfer Protocol Secure beschreibt eine Erweiterung des HTTP-Protokolls, welche mittels TLS verschlüsselte Verbindungen ermöglicht}
+}
+\newglossaryentry{HTTP}
+{
+	name=HTTP,
+	description={Das Hypertext Transfer Protocol ist ein zustandsloses Protokoll zur Datenübertragung. Es wird verwendet, um Daten zwischen Client und Server zu übermitteln}
+}
+\newglossaryentry{Frontend}
+{
+	name=Frontend,
+	description={Der Bereich, auf den ein angemeldeter Nutzer zugreifen kann. Hier kann ein Nutzer Aufträge erstellen, signieren und verwalten}
+}
+\newglossaryentry{Backend}
+{
+	name=Backend,
+	description={Der Bereich, auf den ein angemeldeter Administrator zugreifen kann. Hier kann ein Administrator Endpunkte erstellen und verwalten}
+}
+\newglossaryentry{Wiki}
+{
+	name=Wiki,
+	description={Das Wiki soll als Handbuch zur Bedienung von \name dienen. Das Wiki soll ein FAQ (Frequently Asked Questions) sowie Beispiele zur Benutzung von \name enthalten}
+}
+\newglossaryentry{Avatar}
+{
+	name=Avatar,
+	description={Eine Grafikfigur, die einem Benutzer zugeordnet ist}
+}
+\newglossaryentry{Zwei-Faktor-Authentifizierung}
+{
+	name=Zwei-Faktor-Authentifizierung,
+	description={Die Zwei-Faktor-Authentifizierung (2FA), bezeichnet den Identitätsnachweis eines Nutzers mittels der Kombination zweier unterschiedlicher und insbesondere unabhängiger Komponenten (Faktoren)}
+}
+
+\newglossaryentry{Signatur}
+{
+	name=Signatur,
+	plural=Signaturen,
+	description={Eine Signatur ist die Bestätigung eines Auftrags durch einen Nutzer. Je nach Konfiguration kann sie z.B. durch das Klicken eines Button erfolgen. Ein Nutzer kann erst signieren, wenn alle konfigurierten Bedingungen (z.B. vorheriger Download) erfüllt sind}
+}
+\newglossaryentry{Rolle}
+{
+	name=Rolle,
+	plural=Rollen,
+	description={Das LDAP ermöglicht die Zuweisung von Rollen an Nutzer. Ein Nutzer kann mehrere Rollen besitzen.
+	Das Recht, einen bestimmten Auftrag signieren zu dürfen, ist von der Rolle abhängig}
+}
+
+\newglossaryentry{Auftrag}
+{
+	name=Auftrag,
+	plural=Aufträge,
+	description={Ein Auftrag bezeichnet eine konkrete Instanz eines Endpunkts und kann von jedem Nutzer erstellt werden. Zu einem Auftrag gehören sowohl Kriterien, die durch den Endpunkt konfiguriert sind, als auch Kriterien, die der erstellende Nutzer definiert, und das vom Nutzer ausgefüllte Formular. \\
+	Ein Auftrag gilt als \textbf{zurückgezogen}, wenn der Ersteller des Auftrags den Auftrag abbricht. Die Signatur eines solchen Auftrags ist nicht möglich. Das kann nur erfolgen, bevor der Auftrag genehmigt wird. \\
+	Ein Auftrag gilt als \textbf{genehmigt}, wenn genau ein Nutzer von jeder Rolle, dessen Signatur benötigt wird, diesen signiert hat. Ein solcher Auftrag kann nicht mehr zurückgezogen werden. \\
+	Ein Auftrag gilt als \textbf{abgelehnt}, wenn mindestens ein Nutzer mit einer Rolle, dessen Signatur benötigt wird, den Auftrag ablehnt. Ein solcher Auftrag kann nicht mehr signiert beziehungsweise genehmigt werden}
+}
+\newglossaryentry{System}
+{
+	name=System,
+	description={Das System bezeichnet die Gesamtheit aller Komponenten: Webdienst, Backend und Frontend}
+}
+\newglossaryentry{Modus}
+{
+	name=Modus,
+	plural=Modi,
+	description={Der Modus ist ein Bestandteil eines Endpunkts und spezifiziert die Art der Ausführung eines Auftrags unter diesem Endpunkt. Der Modus ist entweder sequentiell oder parallel. Im sequentiellen Modus ist eine feste Reihenfolge der benötigten Signaturen definiert. Im parallelen Modus können alle Nutzer, deren Signatur benötigt wird, sofort den Auftrag sehen und signieren}
+}
+\newglossaryentry{Nutzer-ID}
+{
+	name=Nutzer-ID,
+	description={Die Nutzer-ID ist ein eindeutiger Identfikator für einen Nutzer}
+}
+\newglossaryentry{Kontext}
+{
+	name=Kontext,
+	description={Ein Kontext beschreibt eine konkrete Ausprägung von Eigenschaften - in diesem Fall Kriterien und Einsatzgebiet -, sodass diese eindeutig von anderen Ausprägungen unterscheidbar ist}
+}
+\newglossaryentry{KVM}
+{
+	name=Kernel-based Virtual Machine (KVM),
+	description={Bezeichnet eine vom Kern eines Linux-Be\-triebs\-sys\-tems bereitgestellte Technologie, welche die simultane Nutzung verschiedener Betriebssysteme auf einem Computer ermöglicht}
+}
+\newglossaryentry{Firewall}
+{
+	name=Firewall,
+	description={Eine \textit{Brandmauer} dient zum Schutz eines Computernetzwerks vor unerwünschten Zugriffen. In unserem Fall wird jeder Netzwerkzugriff, der nicht auf spezifischen Ports stattfindet, geblockt}
+}
+\newglossaryentry{Port}
+{
+	name=Port,
+	description={Ein Port dient zur Unterscheidung von Verbindungen in einem Computernetzwerk. In unserem Fall identifizieren Ports die verwendeten Netzwerkprotokolle, so entspricht der Port 443 einer HTTPS-Verbindung}
+}
+\newglossaryentry{Load Balancer}
+{
+	name=Load Balancer,
+	description={Primärer Einsatzzweck eines Load Balancers ist es, eingehende Anfragen unter mehreren Servern aufzuteilen, um durch Lastverteilung die Ausfallsicherheit zu erhöhen. In unserer Entwicklungsumgebung dient er dazu, eine verschlüsselte HTTPS-Verbindung zwischen Client und Server aufzubauen sowie Anfragen an den richtigen Server weiterzugeben}
+}
+\newglossaryentry{Remote Repository}
+{
+	name=Remote Repository,
+	description={Ist ein ausgelagertes, zentrales Depot, in welchem die unter Versionskontrolle befindlichen Dateien aufbewahrt werden. Es erlaubt den gleichzeitigen Zugriff von mehreren Entwicklern und ermöglicht somit die Zusammenarbeit}
+}
+\newglossaryentry{Versionskontrolle}
+{
+	name=Versionskontrolle,
+	description={Ist ein System zur Protokollierung und Wiederherstellung von Änderungen an Dokumenten oder Dateien}
+}
+\newglossaryentry{Datenbank}
+{
+	name=Datenbank,
+	description={Eine Datenbank dient zur elektronischen Datenverwaltung. Für \name werden die unter \hyperref[sec:data]{Produktdaten} spezifizierten Daten in einer Datenbank gespeichert}
+}
+\newglossaryentry{JavaScript}
+{
+	name=JavaScript,
+	description={Ist eine Programmiersprache, welche die Erstellung dynamischer Webseiten erlaubt. Somit kann auf Eingaben des Nutzers reagiert werden und Inhalte können nach Aufforderung geladen werden}
+}
+
+\newglossaryentry{Webframework}
+{
+	name=Webframework,
+	description={Ein Webframework erleichtert die Entwicklung von Webseiten und Webdiensten, indem häufig benötigte Funktionen in Bibliotheken bereitgestellt werden}
+}
+\newglossaryentry{Certificate Authority}
+{
+	name=Certificate Authority,
+	description={Stellt digitale Zertifikate aus, welche die Ver- und Entschlüsselung der zwischen Client und Server ausgetauschten Daten zulässt}
+}
+\newglossaryentry{Continuous Integration}
+{
+	name=Continuous Integration,
+	description={Bezeichnet eine Vorgehensweise in der Softwareentwicklung, bei der die einzelnen Quelldateien nach dem Einbuchen in die Versionskontrolle automatisiert geprüft und zusammengeführt werden. Mit Continuous Integration können daher frühzeitig Fehler erkannt werden}
+}
+\newglossaryentry{TLS}
+{
+	name=Transport Layer Security (TLS),
+	description={Bezeichnet ein Verschlüsselungsprotokoll, welches gesicherte HTTPS-Verbindungen zwischen Client und Server erlaubt}
+}
+\newglossaryentry{UML}
+{
+	name=UML,
+	description={Ist eine grafische Modellierungssprache zur Spezifikation, Konstruktion und Dokumentation von Softwaresystemen}
+}
+\newglossaryentry{Server}
+{
+	name=Server,
+	description={Ist ein Computer, der Ressourcen für Clients, also andere Computer oder Programme, über ein Netzwerk bereitstellt}
+}
+\newglossaryentry{Editor}
+{
+	name=Editor,
+	description={Der Editor dient zur bequemen Konfiguration eines Endpunkts. Er stellt Elemente bereit, um Kriterien zu definieren, hinzuzufügen oder zu entfernen}
+}
+\newglossaryentry{Formular}
+{
+	name=Formular,
+	description={Ein Formular ist die Gesamtheit einer Gruppe von Formularelementen (z.B. Textfeld, Datei-Upload), die vom Auftragsersteller ausgefüllt werden. Die Zusammensetzung wird vom Administrator bei der Endpunktkonfiguration festgelegt}
+}
+\newglossaryentry{TOTP}
+{
+	name=TOTP,
+	description={Der \enquote{Time-based One-time Password} Algorithmus (Zeitbasierter Einmalkennwort Algorithmus) ist ein Verfahren zur Erzeugung von zeitlich limitierten Einmalkennwörtern basierend auf einem geheimen Schlüssel. Verwendet wird TOTP zumeist in der Zwei-Faktor-Authentifizierung, bei der als zweiter Faktor ein Smartphone genutzt wird, das diesen geheimen Schlüssel speichert und die zeitbasierten Einmalkennwörter dem Nutzer anzeigt. Der Nutzer kann seine Identität nur dann bestätigen, wenn er das Kennwort für sein Konto sowie das Einmalkennwort kennt}
+}
+\newglossaryentry{Status}{
+	name=Status,
+	description={Der Status bezeichnet den Zustand eines Auftrags. Dieser kann genehmigt, in Bearbeitung, zurückgezogen oder abgelehnt sein}
+}
+\newglossaryentry{Client}
+{
+	name=Client,
+	description={Ist ein Computer oder eine Anwendung, die die bereitgestellten Ressourcen eines Servers nutzt}
+}
